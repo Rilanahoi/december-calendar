@@ -110,11 +110,7 @@ const windowsHTML = Array.from({ length: 24 }, (_, index) => {
     `
     : `
       <img
-       src="${asset(
-         day === 21
-           ? "/images/raampjes/2l.webp"
-           : `/images/raampjes/${day}l.png`,
-       )}"
+    src="${asset(`/images/raampjes/${day}l.png`)}"
         class="window window-left"
         alt=""
       />

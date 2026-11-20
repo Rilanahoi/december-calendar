@@ -1176,6 +1176,16 @@ Pas de waarden per kaartje aan.
   transform: translateZ(0.1px);
 }
 
+.door {
+  transform-style: preserve-3d;
+}
+
+.door-left,
+.door-right {
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+  transform: translateZ(0.1px);
+}
 /* FOOTER!! */
 footer {
   color: #927c6c;

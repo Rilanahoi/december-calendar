@@ -1,5 +1,8 @@
 import "./style.css";
 
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 // Namen per persoonlijke kalender
 const recipients: Record<string, string> = {
   annie: "Annie",
@@ -68,11 +71,11 @@ function createSurpriseCard(day: number): string {
   }
 
   const imageHTML = surprise.image
-    ? `<img src="${surprise.image}" alt="${surprise.title ?? "Een verrassing"}">`
+    ? `<img src="${asset(surprise.image)}" alt="${surprise.title ?? "Een verrassing"}">`
     : "";
 
   const videoHTML = surprise.video
-    ? `<video src="${surprise.video}" controls playsinline></video>`
+    ? `<video src="${asset(surprise.video)}" controls playsinline></video>`
     : "";
 
   const titleHTML = surprise.title ? `<h2>${surprise.title}</h2>` : "";
@@ -80,7 +83,7 @@ function createSurpriseCard(day: number): string {
   const textHTML = surprise.text ? `<p>${surprise.text}</p>` : "";
 
   return `
-<div class="surprise-card surprise-card-${day}">
+    <div class="surprise-card surprise-card-${day}">
       ${imageHTML}
       ${videoHTML}
       ${titleHTML}
@@ -100,19 +103,19 @@ const windowsHTML = Array.from({ length: 24 }, (_, index) => {
   const panels = isSingle
     ? `
       <img
-        src="/images/raampjes/${day}.png"
+        src="${asset(`/images/raampjes/${day}.png`)}"
         class="window window-single"
         alt=""
       />
     `
     : `
       <img
-        src="/images/raampjes/${day}l.png"
+        src="${asset(`/images/raampjes/${day}l.png`)}"
         class="window window-left"
         alt=""
       />
       <img
-        src="/images/raampjes/${day}r.png"
+        src="${asset(`/images/raampjes/${day}r.png`)}"
         class="window window-right"
         alt=""
       />
@@ -142,7 +145,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
     <section class="calendar">
       <img
-        src="/images/Basis.png"
+        src="${asset("/images/Basis.png")}"
         alt="Our Christmas village advent calendar"
         class="calendar-image"
       />
@@ -151,8 +154,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <div class="door-area" data-day="1" aria-label="Day 1">
         ${createSurpriseCard(1)}
 
-        <img src="/images/deurtjes/1l.png" class="door door-left" alt="">
-        <img src="/images/deurtjes/1r.png" class="door door-right" alt="">
+        <img src="${asset("/images/deurtjes/1l.png")}" class="door door-left" alt="">
+        <img src="${asset("/images/deurtjes/1r.png")}" class="door door-right" alt="">
 
         <button class="door-click-area" aria-label="Open voordeur"></button>
       </div>

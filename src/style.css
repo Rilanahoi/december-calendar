@@ -1,0 +1,1162 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+  font-family: "Nunito", sans-serif;
+  color: #49352f;
+  background: #eee5d8;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.intro {
+  margin-bottom: 25px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #927c6c;
+  font-weight: 700;
+}
+
+h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(42px, 7vw, 64px);
+  font-weight: 400;
+  margin: 12px 0 5px;
+  color: #503b37;
+}
+
+.subtitle {
+  color: #907c70;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.calendar {
+  position: relative;
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.calendar-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Deurgebied */
+
+.door-area {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+/* Verrassing achter de deuren */
+
+.surprise-card {
+  position: absolute;
+  top: 85%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  width: 12%;
+  padding: 2px;
+  background: #832a3d;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.4s;
+  pointer-events: none;
+}
+
+.surprise-card img {
+  display: block;
+  width: 68%;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.surprise-card p {
+  color: #fce2c6;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(5px, 0.7vw, 7px);
+  margin: 3px 0 1px;
+}
+
+.door-area.open .surprise-card,
+.window-area.open .surprise-card {
+  opacity: 1;
+}
+
+/* Deurtjes */
+
+.door {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  z-index: 2;
+  transition: transform 1s ease;
+  transform-style: flat;
+  backface-visibility: visible;
+}
+
+.door-left {
+  transform-origin: 43% 84%;
+}
+
+.door-right {
+  transform-origin: 56% 84%;
+}
+
+/* Deuren openen */
+
+.door-area.open .door-left {
+  transform: perspective(500px) rotateY(-110deg);
+}
+
+.door-area.open .door-right {
+  transform: perspective(500px) rotateY(110deg);
+}
+
+/* Klikgebied */
+
+.door-click-area {
+  position: absolute;
+  top: 77%;
+  left: 41%;
+  width: 18%;
+  height: 15%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+/* Raampje 2 */
+
+.window-area {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 2;
+  transition: transform 1s ease;
+  backface-visibility: visible;
+}
+
+.window-left {
+  transform-origin: 77% 55%;
+}
+
+.window-right {
+  transform-origin: 88% 55%;
+}
+
+.window-area.open .window-left {
+  transform: perspective(500px) rotateY(-110deg);
+}
+
+.window-area.open .window-right {
+  transform: perspective(500px) rotateY(110deg);
+}
+
+.window-click-area {
+  position: absolute;
+  top: 44%;
+  left: 76%;
+  width: 13%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Raampje 3 */
+
+.window-3 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-3 {
+  position: absolute;
+  top: 43.5%;
+  left: 43%;
+  width: 13%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 3 */
+
+.window-3 .window-left {
+  transform-origin: 43% 50%;
+}
+
+.window-3 .window-right {
+  transform-origin: 56% 40%;
+}
+
+.window-3.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-3.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/*raampje 4 */
+
+.window-4 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-4 {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  width: 13%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 4 */
+
+.window-4 .window-left {
+  transform-origin: 16% 50%;
+}
+
+.window-4 .window-right {
+  transform-origin: 28% 50%;
+}
+
+.window-4.open .window-left {
+  transform: perspective(500px) rotateY(-110deg);
+}
+
+.window-4.open .window-right {
+  transform: perspective(500px) rotateY(110deg);
+}
+
+/* Klikgebied raampje 5 */
+
+.window-click-area-5 {
+  position: absolute;
+  top: 18%;
+  left: 63%;
+  width: 12%;
+  height: 8%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 5 */
+
+.window-5 .window-single {
+  transform-origin: 65% 22%;
+  transition: transform 1s ease;
+}
+
+.window-5.open .window-single {
+  transform: perspective(500px) rotateY(-130deg);
+}
+
+/* Klikgebied raampje 6 */
+
+.window-click-area-6 {
+  position: absolute;
+  top: 69%;
+  left: 16%;
+  width: 13%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 6: omhoog schuiven */
+
+.window-6 .window-single {
+  transition: transform 1s ease;
+  transform: translateY(0);
+}
+
+.window-6.open .window-single {
+  transform: translateY(-4%);
+}
+
+/*raampje 7 */
+
+.window-7 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-7 {
+  position: absolute;
+  top: 69.5%;
+  left: 44%;
+  width: 14%;
+  height: 8%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 7 */
+
+.window-7 .window-left {
+  transform-origin: 44% 70%;
+}
+
+.window-7 .window-right {
+  transform-origin: 58% 80%;
+}
+
+.window-7.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-7.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/*raampje 8*/
+
+.window-8 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-8 {
+  position: absolute;
+  top: 70%;
+  left: 68%;
+  width: 14%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 8 */
+
+.window-8 .window-left {
+  transform-origin: 70% 70%;
+}
+
+.window-8 .window-right {
+  transform-origin: 81% 70%;
+}
+
+.window-8.open .window-left {
+  transform: perspective(500px) rotateY(-110deg);
+}
+
+.window-8.open .window-right {
+  transform: perspective(500px) rotateY(110deg);
+}
+
+/*raampje 9*/
+
+.window-9 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-9 {
+  position: absolute;
+  top: 56.5%;
+  left: 61%;
+  width: 15%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 9 */
+
+.window-9 .window-single {
+  transform-origin: 62.5% 60%;
+  transition: transform 1s ease;
+}
+
+.window-9.open .window-single {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+/*raampje 10*/
+
+.window-10 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-10 {
+  position: absolute;
+  top: 41.5%;
+  left: 61%;
+  width: 14%;
+  height: 14%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Opening raampje 10 */
+
+.window-10 .window-single {
+  transform-origin: 64% 45%;
+  transition: transform 1s ease;
+}
+
+.window-10.open .window-single {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+/* =========================================
+   RAAMPJE 11 - SINGLE
+========================================= */
+
+.window-11 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-11 {
+  position: absolute;
+  top: 18%;
+  left: 24.5%;
+  width: 10%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-11 .window-single {
+  transform-origin: 25.5% 25%;
+  transition: transform 1s ease;
+}
+
+.window-11.open .window-single {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+/* =========================================
+   RAAMPJE 12 - DUBBEL
+========================================= */
+
+.window-12 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-12 {
+  position: absolute;
+  top: 30%;
+  left: 11.5%;
+  width: 11%;
+  height: 12%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.window-12 .window-left {
+  transform-origin: 13% 40%;
+  transition: transform 1s ease;
+}
+
+.window-12 .window-right {
+  transform-origin: 21% 40%;
+  transition: transform 1s ease;
+}
+
+.window-12.open .window-left {
+  transform: perspective(500px) rotateY(-130deg);
+}
+
+.window-12.open .window-right {
+  transform: perspective(500px) rotateY(130deg);
+}
+
+/* =========================================
+   RAAMPJE 13 - SINGLE
+========================================= */
+
+.window-13 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-13 {
+  position: absolute;
+  top: 30%;
+  left: 79%;
+  width: 10%;
+  height: 14%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-13 .window-single {
+  transform-origin: 80% 40%;
+  transition: transform 1s ease;
+}
+
+.window-13.open .window-single {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+/* =========================================
+   RAAMPJE 14 - DUBBEL
+========================================= */
+
+.window-14 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-14 {
+  position: absolute;
+  top: 79%;
+  left: 20%;
+  width: 15%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-14 .window-left {
+  transform-origin: 20.5% 80%;
+  transition: transform 1s ease;
+}
+
+.window-14 .window-right {
+  transform-origin: 34.5% 80%;
+  transition: transform 1s ease;
+}
+
+.window-14.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-14.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   RAAMPJE 15 - DUBBEL
+========================================= */
+
+.window-15 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-15 {
+  position: absolute;
+  top: 79%;
+  left: 62.5%;
+  width: 15%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-15 .window-left {
+  transform-origin: 64% 80%;
+  transition: transform 1s ease;
+}
+
+.window-15 .window-right {
+  transform-origin: 77% 80%;
+  transition: transform 1s ease;
+}
+
+.window-15.open .window-left {
+  transform: perspective(500px) rotateY(-110deg);
+}
+
+.window-15.open .window-right {
+  transform: perspective(500px) rotateY(110deg);
+}
+
+/* =========================================
+   RAAMPJE 16 - DUBBEL
+========================================= */
+
+.window-16 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-16 {
+  position: absolute;
+  top: 55%;
+  left: 76%;
+  width: 13%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-16 .window-left {
+  transform-origin: 77% 50%;
+  transition: transform 1s ease;
+}
+
+.window-16 .window-right {
+  transform-origin: 88.5% 50%;
+  transition: transform 1s ease;
+}
+
+.window-16.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-16.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   RAAMPJE 17 - DUBBEL
+========================================= */
+
+.window-17 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-17 {
+  position: absolute;
+  top: 31%;
+  left: 43%;
+  width: 11%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-17 .window-left {
+  transform-origin: 42.5% 40%;
+  transition: transform 1s ease;
+}
+
+.window-17 .window-right {
+  transform-origin: 54.5% 40%;
+  transition: transform 1s ease;
+}
+
+.window-17.open .window-left {
+  transform: perspective(500px) rotateY(-110deg);
+}
+
+.window-17.open .window-right {
+  transform: perspective(500px) rotateY(110deg);
+}
+
+/* =========================================
+   RAAMPJE 18 - DUBBEL
+========================================= */
+
+.window-18 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-18 {
+  position: absolute;
+  top: 16%;
+  left: 10%;
+  width: 12%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-18 .window-left {
+  transform-origin: 11% 20%;
+  transition: transform 1s ease;
+}
+
+.window-18 .window-right {
+  transform-origin: 21% 20%;
+  transition: transform 1s ease;
+}
+
+.window-18.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-18.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   RAAMPJE 19 - SINGLE
+========================================= */
+
+.window-19 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-19 {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  width: 11%;
+  height: 14%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-19 .window-single {
+  transform-origin: 26% 35%;
+  transition: transform 1s ease;
+}
+
+.window-19.open .window-single {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+/* =========================================
+   RAAMPJE 20 - DUBBEL
+========================================= */
+
+.window-20 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-20 {
+  position: absolute;
+  top: 15%;
+  left: 76%;
+  width: 15%;
+  height: 11%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-20 .window-left {
+  transform-origin: 77% 30%;
+  transition: transform 1s ease;
+}
+
+.window-20 .window-right {
+  transform-origin: 90% 30%;
+  transition: transform 1s ease;
+}
+
+.window-20.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-20.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   RAAMPJE 21 - DUBBEL
+========================================= */
+
+.window-21 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-21 {
+  position: absolute;
+  top: 31%;
+  left: 62%;
+  width: 14%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-21 .window-left {
+  transform-origin: 62.5% 40%;
+  transition: transform 1s ease;
+}
+
+.window-21 .window-right {
+  transform-origin: 75.5% 40%;
+  transition: transform 1s ease;
+}
+
+.window-21.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-21.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   RAAMPJE 22 - SINGLE
+========================================= */
+
+.window-22 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-22 {
+  position: absolute;
+  top: 55%;
+  left: 12%;
+  width: 9%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-22 .window-single {
+  transform-origin: 13% 55%;
+  transition: transform 1s ease;
+}
+
+.window-22.open .window-single {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+/* =========================================
+   RAAMPJE 23 - DUBBEL
+========================================= */
+
+.window-23 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-23 {
+  position: absolute;
+  top: 79%;
+  left: 79%;
+  width: 11%;
+  height: 9%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-23 .window-left {
+  transform-origin: 80% 80%;
+  transition: transform 1s ease;
+}
+
+.window-23 .window-right {
+  transform-origin: 89% 80%;
+  transition: transform 1s ease;
+}
+
+.window-23.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-23.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   RAAMPJE 24 - DUBBEL
+========================================= */
+
+.window-24 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-24 {
+  position: absolute;
+  top: 54%;
+  left: 23%;
+  width: 12%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-24 .window-left {
+  transform-origin: 23% 60%;
+  transition: transform 1s ease;
+}
+
+.window-24 .window-right {
+  transform-origin: 34% 60%;
+  transition: transform 1s ease;
+}
+
+.window-24.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-24.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   RAAMPJE 25 - DUBBEL
+========================================= */
+
+.window-25 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.window-click-area-25 {
+  position: absolute;
+  top: 55%;
+  left: 43%;
+  width: 15%;
+  height: 10%;
+  z-index: 5;
+  pointer-events: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.window-25 .window-left {
+  transform-origin: 43% 60%;
+  transition: transform 1s ease;
+}
+
+.window-25 .window-right {
+  transform-origin: 57% 60%;
+  transition: transform 1s ease;
+}
+
+.window-25.open .window-left {
+  transform: perspective(500px) rotateY(-120deg);
+}
+
+.window-25.open .window-right {
+  transform: perspective(500px) rotateY(120deg);
+}
+
+/* =========================================
+   VERRASSINGSKAARTJES - PER DAG INSTELBAAR
+========================================= */
+
+/* Dag 1 - voordeur */
+.surprise-card-1 {
+  top: 85%;
+  left: 49.5%;
+  width: 11%;
+  height: 7.5%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.surprise-card-1 p {
+  font-size: 5px;
+  line-height: 1.2;
+  margin: 1px 0;
+}
+
+.surprise-card-1 img {
+  width: 70%;
+  max-height: 110%;
+  object-fit: contain;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+/* Dag 2 */
+.surprise-card-2 {
+  top: 50%;
+  left: 82.5%;
+  width: 10%;
+  height: 7%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.surprise-card-2 p {
+  font-size: 5px;
+  line-height: 1.2;
+  margin: 1px 0;
+}
+
+.surprise-card-2 img {
+  width: 60%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+/*
+Voor de overige dagen kun je op dezelfde manier
+een eigen positie en formaat instellen:
+
+.surprise-card-3 {
+  top: 50%;
+  left: 50%;
+  width: 10%;
+}
+
+Pas de waarden per kaartje aan.
+*/
+/* FOOTER!! */
+footer {
+  color: #927c6c;
+  font-family: "DM Serif Display", serif;
+  font-size: 17px;
+  margin-top: 25px;
+}

@@ -1105,7 +1105,7 @@ h1 {
   top: 85%;
   left: 49.5%;
   width: 11%;
-  height: 7.5%;
+  height: 8%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1174,6 +1174,18 @@ Pas de waarden per kaartje aan.
   backface-visibility: visible;
   -webkit-backface-visibility: visible;
   transform: translateZ(0.1px);
+}
+
+@media (max-width: 600px) {
+  .surprise-card-1 {
+    height: 10%;
+    overflow: visible;
+  }
+
+  .surprise-card-1 p {
+    font-size: 5px;
+    line-height: 1.3;
+  }
 }
 /* FOOTER!! */
 footer {

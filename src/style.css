@@ -120,8 +120,9 @@ h1 {
   display: block;
   z-index: 2;
   transition: transform 1s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transform-style: flat;
-  backface-visibility: visible;
 }
 
 .door-left {
@@ -173,7 +174,8 @@ h1 {
   object-fit: fill;
   z-index: 2;
   transition: transform 1s ease;
-  backface-visibility: visible;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .window-left {

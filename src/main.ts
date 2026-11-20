@@ -145,7 +145,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
     <section class="calendar">
       <img
-        src="${asset("/images/Basis.png")}"
+        src="${asset("/images/Basis.jpg")}"
         alt="Our Christmas village advent calendar"
         class="calendar-image"
       />

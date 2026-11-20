@@ -110,7 +110,11 @@ const windowsHTML = Array.from({ length: 24 }, (_, index) => {
     `
     : `
       <img
-        src="${asset(`/images/raampjes/${day}l.png`)}"
+       src="${asset(
+         day === 2
+           ? "/images/raampjes/2l.webp"
+           : `/images/raampjes/${day}l.png`,
+       )}"
         class="window window-left"
         alt=""
       />
@@ -145,7 +149,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
     <section class="calendar">
       <img
-        src="${asset("/images/Basis.jpg")}"
+        src="${asset("/images/Basis.png")}"
         alt="Our Christmas village advent calendar"
         class="calendar-image"
       />

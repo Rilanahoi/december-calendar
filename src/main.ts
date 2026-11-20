@@ -106,6 +106,7 @@ const windowsHTML = Array.from({ length: 24 }, (_, index) => {
         src="${asset(`/images/raampjes/${day}.png`)}"
         class="window window-single"
         alt=""
+         loading="lazy"
       />
     `
     : `
@@ -113,11 +114,13 @@ const windowsHTML = Array.from({ length: 24 }, (_, index) => {
     src="${asset(`/images/raampjes/${day}l.png`)}"
         class="window window-left"
         alt=""
+         loading="lazy"
       />
       <img
         src="${asset(`/images/raampjes/${day}r.png`)}"
         class="window window-right"
         alt=""
+         loading="lazy"
       />
     `;
 

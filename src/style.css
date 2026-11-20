@@ -171,9 +171,16 @@ h1 {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;
   z-index: 2;
   transition: transform 1s ease;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+
+.window-crop {
+  position: absolute;
+  display: block;
+  object-fit: fill;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -1155,6 +1162,19 @@ een eigen positie en formaat instellen:
 
 Pas de waarden per kaartje aan.
 */
+
+.window {
+  transform-style: preserve-3d;
+}
+
+.window-crop {
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+  transform: translateZ(0.1px);
+}
 /* FOOTER!! */
 footer {
   color: #927c6c;

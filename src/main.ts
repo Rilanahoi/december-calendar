@@ -95,34 +95,61 @@ function createSurpriseCard(day: number): string {
 // Welke raampjes hebben één paneel?
 const singleWindowDays = new Set([5, 6, 9, 10, 11, 13, 19, 22]);
 
+type CropInfo = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  originalWidth: number;
+  originalHeight: number;
+};
+
+// Uitsnedegegevens ophalen
+const cropMetadata: Record<string, CropInfo> = await fetch(
+  asset("/images/raampjes-klein/metadata.json"),
+).then((response) => {
+  if (!response.ok) {
+    throw new Error("De metadata van de raampjes kon niet worden geladen.");
+  }
+  return response.json();
+});
+
+// Een uitgesneden raampje op de oorspronkelijke positie plaatsen
+function createCroppedWindow(file: string, className: string): string {
+  const crop = cropMetadata[file];
+
+  if (!crop) {
+    throw new Error(`Geen uitsnedegegevens gevonden voor ${file}`);
+  }
+
+  const left = (crop.left / crop.originalWidth) * 100;
+  const top = (crop.top / crop.originalHeight) * 100;
+  const width = (crop.width / crop.originalWidth) * 100;
+  const height = (crop.height / crop.originalHeight) * 100;
+
+  return `
+    <div class="window ${className}">
+      <img
+        src="${asset(`/images/raampjes-klein/${file}`)}"
+        class="window-crop"
+        style="left:${left}%; top:${top}%; width:${width}%; height:${height}%;"
+        alt=""
+      />
+    </div>
+  `;
+}
+
 // Genereer HTML voor raampjes 2 t/m 25
 const windowsHTML = Array.from({ length: 24 }, (_, index) => {
   const day = index + 2;
   const isSingle = singleWindowDays.has(day);
 
   const panels = isSingle
-    ? `
-      <img
-        src="${asset(`/images/raampjes/${day}.png`)}"
-        class="window window-single"
-        alt=""
-         loading="lazy"
-      />
-    `
+    ? createCroppedWindow(`${day}.png`, "window-single")
     : `
-      <img
-    src="${asset(`/images/raampjes/${day}l.png`)}"
-        class="window window-left"
-        alt=""
-         loading="lazy"
-      />
-      <img
-        src="${asset(`/images/raampjes/${day}r.png`)}"
-        class="window window-right"
-        alt=""
-         loading="lazy"
-      />
-    `;
+        ${createCroppedWindow(`${day}l.png`, "window-left")}
+        ${createCroppedWindow(`${day}r.png`, "window-right")}
+      `;
 
   return `
     <div class="window-area window-${day}" data-day="${day}" aria-label="Day ${day}">

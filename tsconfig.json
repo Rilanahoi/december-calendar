@@ -20,5 +20,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "test-supabase.mjs"]
+  "include": ["src", "test-supabase.mjs", "crop-test.mjs", "crop-all.mjs"]
 }

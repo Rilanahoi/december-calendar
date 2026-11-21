@@ -1,4 +1,22 @@
 import "./style.css";
+import { createWordleHTML, setupWordle } from "./wordle";
+
+// Lock-systeem adventskalender
+const TEST_UNLOCKED_DAY: number | null = 25;
+
+function getUnlockedDay(): number {
+  if (TEST_UNLOCKED_DAY !== null) {
+    return TEST_UNLOCKED_DAY;
+  }
+
+  const today = new Date();
+
+  if (today.getMonth() !== 11) {
+    return 0;
+  }
+
+  return today.getDate();
+}
 
 const asset = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
@@ -60,6 +78,15 @@ const personalSurprises = surprises[recipientId] ?? {};
 
 // HTML maken voor een verrassingskaartje
 function createSurpriseCard(day: number): string {
+  // Wordle op dag 7
+  if (day === 7) {
+    return `
+      <div class="surprise-card surprise-card-7 wordle-surprise-card">
+        ${createWordleHTML()}
+      </div>
+    `;
+  }
+
   const surprise = personalSurprises[day];
 
   if (!surprise) {
@@ -111,6 +138,7 @@ const cropMetadata: Record<string, CropInfo> = await fetch(
   if (!response.ok) {
     throw new Error("De metadata van de raampjes kon niet worden geladen.");
   }
+
   return response.json();
 });
 
@@ -200,6 +228,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   </main>
 `;
 
+// Wordle activeren nadat de HTML is opgebouwd
+setupWordle();
+
 // Eén klikfunctie voor alle deuren en raampjes
 document.querySelector(".calendar")?.addEventListener("click", (event) => {
   const target = event.target;
@@ -211,5 +242,16 @@ document.querySelector(".calendar")?.addEventListener("click", (event) => {
   if (!clickArea) return;
 
   const area = clickArea.closest(".door-area, .window-area");
-  area?.classList.toggle("open");
+
+  if (!area) return;
+
+  // Bepaal welke dag bij dit deurtje of raampje hoort
+  const day = Number(area.getAttribute("data-day"));
+
+  // Voorkom openen van toekomstige dagen
+  if (!area.classList.contains("open") && day > getUnlockedDay()) {
+    return;
+  }
+
+  area.classList.toggle("open");
 });

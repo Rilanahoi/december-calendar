@@ -157,6 +157,7 @@ h1 {
   background: transparent;
   cursor: pointer;
 }
+
 /* Raampje 2 */
 
 .window-area {
@@ -256,7 +257,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/*raampje 4 */
+/* Raampje 4 */
 
 .window-4 {
   position: absolute;
@@ -351,13 +352,14 @@ h1 {
   transform: translateY(-4%);
 }
 
-/*raampje 7 */
+/* Raampje 7 */
 
 .window-7 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  isolation: isolate;
+  isolation: auto;
+  z-index: 10;
 }
 
 .window-click-area-7 {
@@ -392,7 +394,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/*raampje 8*/
+/* Raampje 8 */
 
 .window-8 {
   position: absolute;
@@ -433,7 +435,7 @@ h1 {
   transform: perspective(500px) rotateY(110deg);
 }
 
-/*raampje 9*/
+/* Raampje 9 */
 
 .window-9 {
   position: absolute;
@@ -467,7 +469,7 @@ h1 {
   transform: perspective(500px) rotateY(-120deg);
 }
 
-/*raampje 10*/
+/* Raampje 10 */
 
 .window-10 {
   position: absolute;
@@ -501,9 +503,7 @@ h1 {
   transform: perspective(500px) rotateY(-120deg);
 }
 
-/* =========================================
-   RAAMPJE 11 - SINGLE
-========================================= */
+/* Raampje 11 - SINGLE */
 
 .window-11 {
   position: absolute;
@@ -534,9 +534,7 @@ h1 {
   transform: perspective(500px) rotateY(-120deg);
 }
 
-/* =========================================
-   RAAMPJE 12 - DUBBEL
-========================================= */
+/* Raampje 12 - DUBBEL */
 
 .window-12 {
   position: absolute;
@@ -577,9 +575,7 @@ h1 {
   transform: perspective(500px) rotateY(130deg);
 }
 
-/* =========================================
-   RAAMPJE 13 - SINGLE
-========================================= */
+/* Raampje 13 - SINGLE */
 
 .window-13 {
   position: absolute;
@@ -610,9 +606,7 @@ h1 {
   transform: perspective(500px) rotateY(-120deg);
 }
 
-/* =========================================
-   RAAMPJE 14 - DUBBEL
-========================================= */
+/* Raampje 14 - DUBBEL */
 
 .window-14 {
   position: absolute;
@@ -652,9 +646,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/* =========================================
-   RAAMPJE 15 - DUBBEL
-========================================= */
+/* Raampje 15 - DUBBEL */
 
 .window-15 {
   position: absolute;
@@ -694,9 +686,7 @@ h1 {
   transform: perspective(500px) rotateY(110deg);
 }
 
-/* =========================================
-   RAAMPJE 16 - DUBBEL
-========================================= */
+/* Raampje 16 - DUBBEL */
 
 .window-16 {
   position: absolute;
@@ -736,9 +726,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/* =========================================
-   RAAMPJE 17 - DUBBEL
-========================================= */
+/* Raampje 17 - DUBBEL */
 
 .window-17 {
   position: absolute;
@@ -778,9 +766,7 @@ h1 {
   transform: perspective(500px) rotateY(110deg);
 }
 
-/* =========================================
-   RAAMPJE 18 - DUBBEL
-========================================= */
+/* Raampje 18 - DUBBEL */
 
 .window-18 {
   position: absolute;
@@ -820,9 +806,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/* =========================================
-   RAAMPJE 19 - SINGLE
-========================================= */
+/* Raampje 19 - SINGLE */
 
 .window-19 {
   position: absolute;
@@ -853,9 +837,7 @@ h1 {
   transform: perspective(500px) rotateY(-120deg);
 }
 
-/* =========================================
-   RAAMPJE 20 - DUBBEL
-========================================= */
+/* Raampje 20 - DUBBEL */
 
 .window-20 {
   position: absolute;
@@ -895,9 +877,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/* =========================================
-   RAAMPJE 21 - DUBBEL
-========================================= */
+/* Raampje 21 - DUBBEL */
 
 .window-21 {
   position: absolute;
@@ -937,9 +917,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/* =========================================
-   RAAMPJE 22 - SINGLE
-========================================= */
+/* Raampje 22 - SINGLE */
 
 .window-22 {
   position: absolute;
@@ -970,9 +948,7 @@ h1 {
   transform: perspective(500px) rotateY(-120deg);
 }
 
-/* =========================================
-   RAAMPJE 23 - DUBBEL
-========================================= */
+/* Raampje 23 - DUBBEL */
 
 .window-23 {
   position: absolute;
@@ -1012,9 +988,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/* =========================================
-   RAAMPJE 24 - DUBBEL
-========================================= */
+/* Raampje 24 - DUBBEL */
 
 .window-24 {
   position: absolute;
@@ -1054,9 +1028,7 @@ h1 {
   transform: perspective(500px) rotateY(120deg);
 }
 
-/* =========================================
-   RAAMPJE 25 - DUBBEL
-========================================= */
+/* Raampje 25 - DUBBEL */
 
 .window-25 {
   position: absolute;
@@ -1101,6 +1073,7 @@ h1 {
 ========================================= */
 
 /* Dag 1 - voordeur */
+
 .surprise-card-1 {
   top: 85%;
   left: 49.5%;
@@ -1126,6 +1099,7 @@ h1 {
 }
 
 /* Dag 2 */
+
 .surprise-card-2 {
   top: 50%;
   left: 82.5%;
@@ -1152,16 +1126,10 @@ h1 {
 
 /*
 Voor de overige dagen kun je op dezelfde manier
-een eigen positie en formaat instellen:
-
-.surprise-card-3 {
-  top: 50%;
-  left: 50%;
-  width: 10%;
-}
-
-Pas de waarden per kaartje aan.
+een eigen positie en formaat instellen.
 */
+
+/* Behoud originele raampjes- en deuranimaties */
 
 .window {
   transform-style: preserve-3d;
@@ -1186,7 +1154,130 @@ Pas de waarden per kaartje aan.
   -webkit-backface-visibility: visible;
   transform: translateZ(0.1px);
 }
-/* FOOTER!! */
+
+/* =========================================
+   CHRISTMAS WORDLE - DAG 7
+========================================= */
+
+.surprise-card.wordle-surprise-card {
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  max-width: 310px;
+  height: auto;
+  padding: 8px;
+  overflow: visible;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.wordle {
+  width: 100%;
+  color: #49352f;
+  font-family: "Nunito", sans-serif;
+}
+
+.wordle h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(13px, 3vw, 19px);
+  text-align: center;
+  margin: 0 0 3px;
+  color: #fce2c6;
+}
+
+.wordle-instructions,
+.wordle-message {
+  font-size: clamp(8px, 2vw, 11px);
+  text-align: center;
+  color: #fce2c6;
+  margin: 4px 0 8px;
+}
+
+.wordle-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  width: 85%;
+  margin: 0 auto 8px;
+}
+
+.wordle-tile {
+  aspect-ratio: 1;
+  border: 1px solid #d8bda9;
+  background: #f4e6d5;
+  color: #49352f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: clamp(12px, 3vw, 19px);
+  border-radius: 3px;
+}
+
+.wordle-tile.correct,
+.wordle-key.correct {
+  background: #66845f;
+  color: white;
+}
+
+.wordle-tile.present,
+.wordle-key.present {
+  background: #b28a42;
+  color: white;
+}
+
+.wordle-tile.absent,
+.wordle-key.absent {
+  background: #776761;
+  color: white;
+}
+
+.wordle-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.wordle-key-row {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.wordle-key {
+  flex: 1;
+  min-width: 0;
+  height: clamp(24px, 6vw, 36px);
+  border: none;
+  border-radius: 3px;
+  background: #f4e6d5;
+  color: #49352f;
+  font-family: "Nunito", sans-serif;
+  font-size: clamp(8px, 2vw, 12px);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wordle-wide-key {
+  flex: 1.5;
+  font-size: clamp(7px, 1.7vw, 10px);
+}
+
+/* Wordle boven de geopende raampjes plaatsen */
+.window-area.open .wordle-surprise-card {
+  z-index: 5;
+}
+
+.wordle-instructions {
+  font-size: clamp(7px, 1.7vw, 9px);
+  line-height: 1.35;
+  text-align: center;
+  margin: 4px 0 7px;
+}
+
+/* FOOTER */
+
 footer {
   color: #927c6c;
   font-family: "DM Serif Display", serif;

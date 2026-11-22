@@ -217,22 +217,22 @@ h1 {
 }
 
 /* Raampje 3 */
-
 .window-3 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  isolation: auto;
-  z-index: 100;
+  isolation: isolate;
+  z-index: 10;
 }
 
+/* Klikgebied raampje 3 */
 .window-click-area-3 {
   position: absolute;
   top: 43.5%;
   left: 43%;
   width: 13%;
   height: 9%;
-  z-index: 100;
+  z-index: 5;
   pointer-events: auto;
   border: none;
   outline: none;
@@ -241,7 +241,6 @@ h1 {
 }
 
 /* Opening raampje 3 */
-
 .window-3 .window-left {
   transform-origin: 43% 50%;
 }
@@ -1430,7 +1429,10 @@ een eigen positie en formaat instellen.
   padding: 8px;
   overflow: visible;
   z-index: 5;
-  pointer-events: auto;
+  pointer-events: none;
+  .window-area.open .wordle-surprise-card {
+    pointer-events: auto;
+  }
 }
 
 .wordle {

@@ -1,5 +1,6 @@
 import "./style.css";
-import { createWordleHTML, setupWordle } from "./wordle";
+import { createWordleHTML, setupWordle } from "./Wordle";
+import { createDrinkBookHTML, setupDrinkBook } from "./drinks-book";
 
 // Lock-systeem adventskalender
 const TEST_UNLOCKED_DAY: number | null = 25;
@@ -21,11 +22,11 @@ function getUnlockedDay(): number {
 const asset = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
-// Namen per persoonlijke kalender
 const recipients: Record<string, string> = {
   annie: "Annie",
   jais: "Jais",
   vero: "Vero",
+  marjon: "Marjon",
 };
 
 // Welke persoonlijke kalender wordt geopend?
@@ -83,6 +84,46 @@ function createSurpriseCard(day: number): string {
     return `
       <div class="surprise-card surprise-card-7 wordle-surprise-card">
         ${createWordleHTML()}
+      </div>
+    `;
+  }
+
+  // Gezamenlijk receptenboekje op dag 3
+  if (day === 3) {
+    return `
+    <div class="surprise-card surprise-card-3 drink-book-surprise-card">
+      ${createDrinkBookHTML()}
+    </div>
+  `;
+  }
+
+  // Compliment of the day op dag 4
+  if (day === 4) {
+    return `
+    <div class="surprise-card surprise-card-4">
+      <h2>Compliment of the day ♡</h2>
+      <p>Ik ben blij met alle gezelligheid en blijdschap die jij in mijn leven brengt.</p>
+    </div>
+  `;
+  }
+  // Persoonlijke kersthoroscoop op dag 12
+  if (day === 12) {
+    const horoscopes: Record<string, string> = {
+      annie:
+        "Deze kerst hangt er iets bijzonders in de lucht. Jouw warme hart brengt gezelligheid en geluk aan de mensen om je heen. Verwacht knusse momenten, onverwachte lachbuien en misschien wel een kleine verrassing uit de kerststerren.",
+
+      jais: "Jij bent deze kerst niet te missen! Net als de kerstlichtjes straal je erop los. De sterren voorspellen een vleugje avontuur, een flinke dosis gezelligheid en een verrassing die helemaal bij jou past. Blijf vooral lekker shinen!",
+
+      vero: "De kerststerren brengen jou een seizoen vol warmte, harmonie en kleine geluksmomentjes. Er staat gezelligheid op de planning en misschien komt er iets op je pad dat je nét dat extra beetje magie geeft. Volg je gevoel, want dat zit deze kerst helemaal goed.",
+
+      marjon:
+        "Deze kerst fluisteren de sterren dat jouw creativiteit mag schitteren! Laat je inspireren door de kleine dingen om je heen en geef je fantasie alle ruimte. Misschien ontstaat er wel iets bijzonders uit een onverwachte ingeving. De mooiste kunstwerken beginnen tenslotte met een beetje magie. ♡",
+    };
+
+    return `
+      <div class="surprise-card surprise-card-12">
+        <h2>Jouw kersthoroscoop ✨</h2>
+        <p>${horoscopes[recipientId] ?? "De kerststerren hebben iets moois voor jou in petto. Laat je verrassen door een beetje kerstmagie! ♡"}</p>
       </div>
     `;
   }
@@ -230,6 +271,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
 // Wordle activeren nadat de HTML is opgebouwd
 setupWordle();
+setupDrinkBook();
 
 // Eén klikfunctie voor alle deuren en raampjes
 document.querySelector(".calendar")?.addEventListener("click", (event) => {

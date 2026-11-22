@@ -92,8 +92,11 @@ const VALID_WORDS = new Set([
 export function createWordleHTML(): string {
   return `
     <div class="wordle" id="wordle">
+
+      <button class="wordle-close" type="button" aria-label="Sluiten">×</button>
+
       <h2>CHRISTMAS WORDLE</h2>
-     <p class="wordle-instructions">
+      <p class="wordle-instructions">
   Zoek het engelse woord in 6 beurten (niet alle woorden paktie dus dan moetje even een andere verzinnen
   Thema is KERST!<br>
   Groen = juiste plek, Geel is onjuiste plek, Grijs is letter zit er niet in.
@@ -135,6 +138,13 @@ export function setupWordle(): void {
   const grid = root.querySelector<HTMLDivElement>("#wordle-grid")!;
   const message = root.querySelector<HTMLParagraphElement>("#wordle-message")!;
   const keyboard = root.querySelector<HTMLDivElement>("#wordle-keyboard")!;
+  const closeButton = root.querySelector<HTMLButtonElement>(".wordle-close");
+
+  // Kruisje sluit het volledige raampje van dag 7
+  closeButton?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    root.closest(".window-area")?.classList.remove("open");
+  });
 
   let guesses: string[] = [];
   let currentGuess = "";

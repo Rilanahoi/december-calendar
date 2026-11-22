@@ -1641,6 +1641,27 @@ een eigen positie en formaat instellen.
   margin: 4px 0 7px;
 }
 
+.wordle {
+  position: relative;
+}
+
+.wordle-close {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #832a3d;
+  color: #fce2c6;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 20;
+}
+
 /* Kersthoroscoop dag 12 */
 .surprise-card-12 {
   top: 36%;

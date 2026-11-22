@@ -1567,6 +1567,42 @@ een eigen positie en formaat instellen.
   margin: 0;
 }
 
+/* Jais, Vero en Marjon - dag 1 kaartje groter */
+.surprise-card:has(.surprise-image-jais-1),
+.surprise-card:has(.surprise-image-vero-1),
+.surprise-card:has(.surprise-image-marjon-1) {
+  width: 14%;
+  height: 6%;
+  padding: 4px;
+}
+
+.surprise-image-jais-1,
+.surprise-image-vero-1,
+.surprise-image-marjon-1 {
+  width: 90% !important;
+  max-width: 100%;
+}
+
+/* Kerst-cursors */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M9 27 V12 A8 8 0 0 1 25 12 V16' fill='none' stroke='%23fff' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M9 27 V12 A8 8 0 0 1 25 12 V16' fill='none' stroke='%23b52d42' stroke-width='5' stroke-dasharray='5 5'/%3E%3C/svg%3E")
+        9 9,
+      auto;
+  }
+
+  button,
+  a,
+  [role="button"],
+  .door-click-area,
+  .window-click-area {
+    cursor:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext x='2' y='25' font-size='25'%3E%F0%9F%8E%84%3C/text%3E%3C/svg%3E")
+        12 12,
+      pointer;
+  }
+}
 /* FOOTER */
 
 footer {

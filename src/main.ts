@@ -1,5 +1,5 @@
 import "./style.css";
-import { createWordleHTML, setupWordle } from "./Wordle";
+import { createWordleHTML, setupWordle } from "./wordle";
 import { createDrinkBookHTML, setupDrinkBook } from "./drinks-book";
 
 // Lock-systeem adventskalender
@@ -33,6 +33,7 @@ const recipients: Record<string, string> = {
 const params = new URLSearchParams(window.location.search);
 const recipientId = params.get("voor") ?? "";
 const recipientName = recipients[recipientId] ?? "Christmas Friend";
+document.title = `${recipientName}'s Advent Calendar`;
 
 // ==========================================
 // HIER VUL JE DE PERSOONLIJKE VERRASSINGEN IN
@@ -55,21 +56,33 @@ const surprises: Record<string, Record<number, Surprise>> = {
       text: "Echte diva deze meid",
       image: "/images/verassingen/annie/2.JPG",
     },
+    5: {
+      text: "Echte diva deze meid",
+      image: "/images/verassingen/annie/dag5.JPG",
+    },
   },
 
   jais: {
     1: {
-      title: "Voor jou!",
-      text: "Tijd voor een gezellig avondje.",
-      image: "/images/verassingen/jais-1.jpg",
+      text: "Echt kleintjes.",
+      image: "/images/verassingen/jais/dag1.JPG",
+    },
+    5: {
+      text: "echt een cutie",
+      image: "/images/verassingen/jais/dag5.JPG",
     },
   },
 
   vero: {
     1: {
-      title: "Ho ho ho!",
-      text: "Een kleine verrassing voor jou.",
-      image: "/images/verassingen/vero-1.jpg",
+      text: "Toen al gekkies!",
+      image: "/images/verassingen/vero/baard3.jpg",
+    },
+  },
+  marjon: {
+    1: {
+      text: "Toen al helemaal hip samen",
+      image: "/images/verassingen/marjon/dag1.JPG",
     },
   },
 };
@@ -139,7 +152,7 @@ function createSurpriseCard(day: number): string {
   }
 
   const imageHTML = surprise.image
-    ? `<img src="${asset(surprise.image)}" alt="${surprise.title ?? "Een verrassing"}">`
+    ? `<img src="${asset(surprise.image)}" class="surprise-image-${recipientId}-${day}" alt="${surprise.title ?? "Een verrassing"}">`
     : "";
 
   const videoHTML = surprise.video

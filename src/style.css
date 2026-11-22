@@ -217,6 +217,7 @@ h1 {
 }
 
 /* Raampje 3 */
+
 .window-3 {
   position: absolute;
   inset: 0;
@@ -353,12 +354,11 @@ h1 {
 }
 
 /* Raampje 7 */
-
 .window-7 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  isolation: auto;
+  isolation: isolate;
   z-index: 10;
 }
 
@@ -1528,9 +1528,12 @@ een eigen positie en formaat instellen.
   overflow: visible;
   z-index: 5;
   pointer-events: none;
-  .window-area.open .wordle-surprise-card {
-    pointer-events: auto;
-  }
+}
+
+/* Wordle pas klikbaar als dag 7 open is */
+.window-area.open .wordle-surprise-card {
+  pointer-events: auto;
+  z-index: 5;
 }
 
 .wordle {
@@ -1719,15 +1722,14 @@ een eigen positie en formaat instellen.
       pointer;
   }
 }
-/* Mobiel - receptenboek dag 3 boven raampje 7 */
-@media (max-width: 600px) {
-  .window-3 {
-    z-index: 11;
-  }
 
-  .window-7 {
-    z-index: 10;
-  }
+/* Voorkom dat de andere raampanelen over de speciale kaartjes vallen */
+.calendar:has(.window-3.open) .window-7 .window {
+  visibility: hidden;
+}
+
+.calendar:has(.window-7.open) .window-3 .window {
+  visibility: hidden;
 }
 /* FOOTER */
 

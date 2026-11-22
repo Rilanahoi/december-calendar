@@ -57,8 +57,8 @@ const surprises: Record<string, Record<number, Surprise>> = {
       image: "/images/verassingen/annie/2.JPG",
     },
     5: {
-      text: "Echte diva deze meid",
-      image: "/images/verassingen/annie/dag5.JPG",
+      text: "Kiek ons nou haha",
+      image: "/images/verassingen/annie/dag5.jpg",
     },
   },
 
@@ -66,6 +66,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
     1: {
       text: "Echt kleintjes.",
       image: "/images/verassingen/jais/dag1.JPG",
+    },
+    2: {
+      text: "En echt te hip zijn wij",
+      image: "/images/verassingen/jais/dag2.jpg",
     },
     5: {
       text: "echt een cutie",
@@ -78,11 +82,27 @@ const surprises: Record<string, Record<number, Surprise>> = {
       text: "Toen al gekkies!",
       image: "/images/verassingen/vero/baard3.jpg",
     },
+    2: {
+      text: "Nu nog gekkies!",
+      image: "/images/verassingen/vero/dag2.JPG",
+    },
+    5: {
+      text: "Lekker drankies doen saampies",
+      image: "/images/verassingen/vero/dag5.JPG",
+    },
   },
   marjon: {
     1: {
       text: "Toen al helemaal hip samen",
       image: "/images/verassingen/marjon/dag1.JPG",
+    },
+    2: {
+      text: "Nu nog helemaal hip!",
+      image: "/images/verassingen/marjon/dag2.JPG",
+    },
+    5: {
+      text: "Weetje nog in Italie?",
+      image: "/images/verassingen/marjon/dag5.JPG",
     },
   },
 };
@@ -116,6 +136,21 @@ function createSurpriseCard(day: number): string {
     <div class="surprise-card surprise-card-4">
       <h2>Compliment of the day ♡</h2>
       <p>Ik ben blij met alle gezelligheid en blijdschap die jij in mijn leven brengt.</p>
+    </div>
+  `;
+  }
+
+  // Current Mood op dag 6
+  if (day === 6) {
+    return `
+    <div class="surprise-card surprise-card-6">
+      <h2>Current mood</h2>
+      <p>
+        Stuur een foto of plaatje die jouw mood van vandaag omschrijft!
+      </p>
+      <p>
+        Mag een selfie zijn, een meme, een GIF of iets totaal randoms. 😂
+      </p>
     </div>
   `;
   }

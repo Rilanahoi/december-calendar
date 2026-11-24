@@ -194,6 +194,37 @@ function createSurpriseCard(day: number): string {
       </div>
     `;
   }
+  // Dilemma Tuesday op dag 8, 15 en 22
+  const dilemmas: Record<number, { image: string; text: string }> = {
+    8: {
+      image: "/images/verassingen/iedereen/dd1.jpg",
+      text: "Je moet elke ochtend een halve liter lauw bier drinken – OF – je moet elke ochtend bootcampen tussen 6 en 8.",
+    },
+    15: {
+      image: "/images/verassingen/iedereen/dd2.jpg",
+      text: "Je wordt elke dag wakker met Wake Me Up Before You Go-Go van Wham! – OF – je spuit elke dag een bus haarspray in je haar.",
+    },
+    22: {
+      image: "/images/verassingen/iedereen/dd3.jpg",
+      text: "Je maakt elk uur het geluid van een koekoeksklok – OF – je kunt geen klok meer lezen.",
+    },
+  };
+
+  if (dilemmas[day]) {
+    const dilemma = dilemmas[day];
+
+    return `
+      <div class="surprise-card surprise-card-${day} dilemma-tuesday-card">
+        <img
+          src="${asset(dilemma.image)}"
+          class="dilemma-image"
+          alt="Dilemma Tuesday"
+        >
+        <p class="dilemma-text">${dilemma.text}</p>
+      </div>
+    `;
+  }
+
   // Persoonlijke kersthoroscoop op dag 12
   if (day === 12) {
     const horoscopes: Record<string, string> = {

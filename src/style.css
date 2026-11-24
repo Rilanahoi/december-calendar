@@ -1857,6 +1857,56 @@ een eigen positie en formaat instellen.
   position: relative;
   z-index: 30;
 }
+
+/* =====================================
+   DAG 11 – MEME OF THE DAY
+===================================== */
+
+.surprise-card-11 {
+  top: 23%;
+  left: 29%;
+  width: 15%;
+  height: 12%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  overflow: hidden;
+}
+
+/* TITEL */
+.surprise-card-11 h2 {
+  margin: 0;
+  font-size: 8px;
+  text-align: center;
+}
+
+/* TEKST */
+.surprise-card-11 p {
+  margin: 0;
+  font-size: 6px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* MEME – ALGEMEEN */
+.surprise-card-11 img {
+  width: 100%;
+  height: 65%;
+  object-fit: contain;
+}
+
+/* Dag 11 – kaartje vóór het raampje */
+.window-11 {
+  isolation: auto;
+}
+
+.window-11 .surprise-card-11 {
+  position: absolute;
+  z-index: 20;
+}
 /* =====================================
    dag 12- kersthoroscoop
 ===================================== */

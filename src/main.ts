@@ -64,6 +64,9 @@ const surprises: Record<string, Record<number, Surprise>> = {
       text: "Echte gekkies <3<3<3",
       image: "/images/verassingen/annie/dag9.jpg",
     },
+    11: {
+      image: "/images/verassingen/iedereen/memeannie.jpg",
+    },
   },
 
   jais: {
@@ -82,6 +85,9 @@ const surprises: Record<string, Record<number, Surprise>> = {
     9: {
       text: "<3<3<3",
       image: "/images/verassingen/jais/dag9.jpg",
+    },
+    11: {
+      image: "/images/verassingen/iedereen/memejais.jpg",
     },
   },
 
@@ -102,6 +108,9 @@ const surprises: Record<string, Record<number, Surprise>> = {
       text: "<3 <3 <3",
       image: "/images/verassingen/vero/dag9.JPG",
     },
+    11: {
+      image: "/images/verassingen/iedereen/memevero.png",
+    },
   },
   marjon: {
     1: {
@@ -119,6 +128,9 @@ const surprises: Record<string, Record<number, Surprise>> = {
     9: {
       text: "<3<3<3",
       image: "/images/verassingen/marjon/dag9.JPG",
+    },
+    11: {
+      image: "/images/verassingen/iedereen/mememarjon.jpg",
     },
   },
 };
@@ -191,6 +203,22 @@ function createSurpriseCard(day: number): string {
         >
           Luister hierrrr
         </a>
+      </div>
+    `;
+  }
+  // Meme of the Day op dag 11
+  if (day === 11) {
+    const meme = personalSurprises[11];
+
+    return `
+      <div class="surprise-card surprise-card-11">
+        <h2>MEME OF THE DAY </h2>
+        <p>Geen context nodig. Gewoon even lachen. 😂</p>
+        <img
+          src="${asset(meme.image!)}"
+          class="surprise-image-${recipientId}-11"
+          alt="Meme of the Day"
+        >
       </div>
     `;
   }

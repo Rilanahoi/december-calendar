@@ -69,7 +69,9 @@ h1 {
   isolation: isolate;
 }
 
-/* Verrassing achter de deuren */
+/* =====================================
+   VERRASSING ACHTER DE DEUREN
+===================================== */
 
 .surprise-card {
   position: absolute;
@@ -85,12 +87,14 @@ h1 {
   opacity: 0;
   transition: opacity 0.5s ease 0.4s;
   pointer-events: none;
+  box-sizing: border-box;
 }
 
 .surprise-card img {
   display: block;
   width: 68%;
   max-width: 100%;
+  height: auto;
   object-fit: contain;
   margin: 0 auto;
   border-radius: 4px;
@@ -100,6 +104,7 @@ h1 {
   color: #fce2c6;
   font-family: "DM Serif Display", serif;
   font-size: clamp(5px, 0.7vw, 7px);
+  line-height: 1.2;
   margin: 3px 0 1px;
 }
 
@@ -1991,6 +1996,32 @@ een eigen positie en formaat instellen.
   }
 }
 
+/* =====================================
+   ALGEMENE MOBIELE SCHAAL KAARTJES
+===================================== */
+
+@media (max-width: 600px) {
+  .surprise-card {
+    border-radius: 5px;
+    padding: 1px;
+  }
+
+  .surprise-card h2 {
+    font-size: clamp(4px, 1.1vw, 8px);
+    line-height: 1.1;
+  }
+
+  .surprise-card p {
+    font-size: clamp(4px, 0.9vw, 7px);
+    line-height: 1.15;
+  }
+
+  .surprise-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
 /* FOOTER */
 
 footer {

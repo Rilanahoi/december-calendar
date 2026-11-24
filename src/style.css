@@ -2,7 +2,7 @@
 
 :root {
   font-family: "Nunito", sans-serif;
-  color: #49352f;
+  color: #000000;
   background: #eee5d8;
   font-synthesis: none;
 }
@@ -1161,9 +1161,9 @@ een eigen positie en formaat instellen.
   top: 50%;
   left: 50%;
   width: 80%;
-  max-width: 400px;
+  max-width: 300px;
   height: 50%;
-  max-height: 550px;
+  max-height: 400px;
   padding: 8px;
   overflow: visible;
   z-index: 5;
@@ -1485,7 +1485,7 @@ een eigen positie en formaat instellen.
   top: 74.5%;
   left: 22.5%;
   width: 12%;
-  height: 7%;
+  height: 8%;
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -1519,10 +1519,10 @@ een eigen positie en formaat instellen.
 ========================================= */
 
 .surprise-card.wordle-surprise-card {
-  top: 50%;
+  top: 60%;
   left: 50%;
   width: 78%;
-  max-width: 310px;
+  max-width: 250px;
   height: auto;
   padding: 8px;
   overflow: visible;
@@ -1661,8 +1661,205 @@ een eigen positie en formaat instellen.
   cursor: pointer;
   z-index: 20;
 }
+/* =====================================
+   DILEMMA TUESDAY – ALGEMEEN
+===================================== */
 
-/* Kersthoroscoop dag 12 */
+.dilemma-tuesday-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  gap: 8px;
+}
+
+.dilemma-image {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.dilemma-text {
+  margin: 0;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* =====================================
+   DAG 8
+===================================== */
+
+.surprise-card-8.dilemma-tuesday-card {
+  top: 75%;
+  left: 76%;
+  width: 16%;
+  height: 9%;
+}
+
+.surprise-card-8 .dilemma-image {
+  width: 120%;
+  height: 120%;
+}
+
+.surprise-card-8 .dilemma-text {
+  width: 70%;
+  font-size: 6px;
+}
+
+/* =====================================
+   DAG 15
+===================================== */
+
+.surprise-card-15.dilemma-tuesday-card {
+  top: 84%;
+  left: 70.5%;
+  width: 16%;
+  height: 9%;
+}
+
+.surprise-card-15 .dilemma-image {
+  width: 100%;
+  height: 100%;
+}
+
+.surprise-card-15 .dilemma-text {
+  width: 70%;
+  font-size: 6px;
+}
+
+/* =====================================
+   DAG 22
+===================================== */
+
+.surprise-card-22.dilemma-tuesday-card {
+  top: 60%;
+  left: 15.5%;
+  width: 14%;
+  height: 9%;
+}
+
+.surprise-card-22 .dilemma-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* =====================================
+   DAG 9 – PERSOONLIJKE FOTO'S EN TEKST
+===================================== */
+.surprise-card-9 {
+  top: 61%;
+  left: 69%;
+  width: 13%;
+  height: 10%;
+}
+
+/* Annie */
+.surprise-card-9:has(.surprise-image-annie-9) p {
+  font-size: 8px;
+}
+
+.surprise-image-annie-9 {
+  width: 100% !important;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* Jais */
+.surprise-card-9:has(.surprise-image-jais-9) p {
+  font-size: 12px;
+}
+
+.surprise-image-jais-9 {
+  width: 100% !important;
+  height: 80%;
+  object-fit: contain;
+}
+
+/* Vero */
+.surprise-card-9:has(.surprise-image-vero-9) p {
+  font-size: 6px;
+}
+
+.surprise-image-vero-9 {
+  width: 90% !important;
+  height: 70%;
+}
+
+/* Marjon */
+.surprise-card-9:has(.surprise-image-marjon-9) p {
+  font-size: 12px;
+}
+
+.surprise-image-marjon-9 {
+  width: 80% !important;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* =====================================
+   DAG 10 – SPOTIFY
+===================================== */
+
+.surprise-card-10 {
+  top: 49%;
+  left: 69%;
+  width: 12%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  z-index: 10;
+}
+
+.surprise-card-10 h2 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.surprise-card-10 p {
+  margin: 0;
+  font-size: 8px;
+}
+
+.spotify-button {
+  display: inline-block;
+  padding: 5px 8px;
+  background: #8a1313;
+  color: #fce2c6;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 8px;
+  font-weight: 700;
+  white-space: nowrap;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Klikbare inhoud van dag 10 */
+.window-10 .surprise-card-10 {
+  pointer-events: none;
+}
+
+.window-10.open .surprise-card-10 {
+  pointer-events: auto;
+}
+
+.window-10.open .spotify-button {
+  pointer-events: auto;
+  position: relative;
+  z-index: 30;
+}
+/* =====================================
+   dag 12- kersthoroscoop
+===================================== */
 .surprise-card-12 {
   top: 36%;
   left: 17%;
@@ -1744,14 +1941,6 @@ een eigen positie en formaat instellen.
   }
 }
 
-/* Voorkom dat de andere raampanelen over de speciale kaartjes vallen */
-.calendar:has(.window-3.open) .window-7 .window {
-  visibility: hidden;
-}
-
-.calendar:has(.window-7.open) .window-3 .window {
-  visibility: hidden;
-}
 /* FOOTER */
 
 footer {

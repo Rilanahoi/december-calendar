@@ -60,6 +60,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
       text: "Kiek ons nou haha",
       image: "/images/verassingen/annie/dag5.jpg",
     },
+    9: {
+      text: "Echte gekkies <3<3<3",
+      image: "/images/verassingen/annie/dag9.jpg",
+    },
   },
 
   jais: {
@@ -74,6 +78,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
     5: {
       text: "echt een cutie",
       image: "/images/verassingen/jais/dag5.JPG",
+    },
+    9: {
+      text: "<3<3<3",
+      image: "/images/verassingen/jais/dag9.jpg",
     },
   },
 
@@ -90,6 +98,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
       text: "Lekker drankies doen saampies",
       image: "/images/verassingen/vero/dag5.JPG",
     },
+    9: {
+      text: "<3 <3 <3",
+      image: "/images/verassingen/vero/dag9.JPG",
+    },
   },
   marjon: {
     1: {
@@ -103,6 +115,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
     5: {
       text: "Weetje nog in Italie?",
       image: "/images/verassingen/marjon/dag5.JPG",
+    },
+    9: {
+      text: "<3<3<3",
+      image: "/images/verassingen/marjon/dag9.JPG",
     },
   },
 };
@@ -153,6 +169,30 @@ function createSurpriseCard(day: number): string {
       </p>
     </div>
   `;
+  }
+  // Persoonlijk Spotify-nummer op dag 10
+  if (day === 10) {
+    const spotifyTracks: Record<string, string> = {
+      annie: "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b",
+      jais: "https://open.spotify.com/track/4zP7ADsgJgHGY6VzxbNp1z",
+      vero: "https://open.spotify.com/track/2Tf9Zw167rkeEgq2t9JWpn",
+      marjon: "https://open.spotify.com/track/7MeD7vt3AEmW2mQd0jzelq",
+    };
+
+    return `
+      <div class="surprise-card surprise-card-10 spotify-card">
+        <h2>Today's soundtrack</h2>
+        <p>Een liedje speciaal voor jou!</p>
+        <a
+          href="${spotifyTracks[recipientId]}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="spotify-button"
+        >
+          Luister hierrrr
+        </a>
+      </div>
+    `;
   }
   // Persoonlijke kersthoroscoop op dag 12
   if (day === 12) {
@@ -326,6 +366,17 @@ document.querySelector(".calendar")?.addEventListener("click", (event) => {
   const target = event.target;
 
   if (!(target instanceof Element)) return;
+
+  const spotifyButton = target.closest<HTMLAnchorElement>(".spotify-button");
+
+  if (spotifyButton) {
+    const spotifyWindow = spotifyButton.closest(".window-10");
+
+    if (!spotifyWindow?.classList.contains("open")) {
+      event.preventDefault();
+      return;
+    }
+  }
 
   const clickArea = target.closest(".door-click-area, .window-click-area");
 

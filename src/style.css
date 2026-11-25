@@ -2108,6 +2108,193 @@ Gebruik voor tekst "cqw" in plaats van "px" (px / 7,6 = cqw).
   position: absolute;
   z-index: 20;
 }
+
+/* =====================================
+   DAG 16 – A RANDOM PROPHECY
+===================================== */
+
+/* Zorg dat de voorspelling vóór het raampje verschijnt */
+.window-16 {
+  isolation: auto;
+}
+
+.window-16 .surprise-card-16 {
+  position: absolute;
+  z-index: 20;
+  top: 60%;
+  left: 50%;
+  width: 40%;
+  max-width: 300px;
+  padding: 1.5cqw;
+  background: #3b202b;
+  border: 2px solid #c49a58;
+  border-radius: 12px;
+  color: #fce8c8;
+  text-align: center;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.window-16.open .surprise-card-16 {
+  pointer-events: auto;
+}
+
+.surprise-card-16 h2 {
+  color: #e8c27d;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.8cqw;
+  margin: 0 0 0.8cqw;
+}
+
+.surprise-card-16 p {
+  color: #fce8c8;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.05cqw;
+  line-height: 1.4;
+  margin: 0.5cqw 0;
+}
+
+.surprise-card-16 .prophecy-intro {
+  font-style: italic;
+  color: #d9bd94;
+}
+
+/* Kaartkeuze */
+
+.prophecy-choices {
+  margin-top: 1cqw;
+}
+
+.surprise-card-16 .prophecy-instruction {
+  font-size: 1.1cqw;
+  margin-bottom: 1cqw;
+}
+
+.prophecy-card-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5cqw;
+}
+
+.prophecy-card-choice {
+  width: 8cqw;
+  height: 11cqw;
+  max-width: 65px;
+  max-height: 90px;
+  min-width: 35px;
+  min-height: 48px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.prophecy-card-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+.prophecy-card-choice.is-selected .prophecy-card-inner {
+  transform: rotateY(180deg);
+}
+
+.prophecy-card-back,
+.prophecy-card-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #c49a58;
+  border-radius: 7px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  font-family: "DM Serif Display", serif;
+}
+
+.prophecy-card-back {
+  background: #832a3d;
+  color: #e8c27d;
+  font-size: 3cqw;
+}
+
+.prophecy-card-front {
+  background: #f1dfc1;
+  color: #832a3d;
+  font-size: 3.5cqw;
+  transform: rotateY(180deg);
+}
+
+.prophecy-card-choice:disabled {
+  cursor: default;
+}
+
+/* De voorspelling */
+
+.prophecy-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: prophecy-appear 0.7s ease both;
+}
+
+.prophecy-result[hidden],
+.prophecy-choices[hidden] {
+  display: none;
+}
+
+.surprise-card-16 .prophecy-reveal-label {
+  color: #d6aa66;
+  font-size: 1cqw;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin: 0.5cqw 0;
+}
+
+.surprise-card-16 .prophecy-result h3 {
+  color: #e8c27d;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.7cqw;
+  line-height: 1.2;
+  margin: 0.5cqw 0;
+}
+
+.surprise-card-16 .prophecy-text {
+  font-size: 1.05cqw;
+  line-height: 1.45;
+}
+
+.surprise-card-16 .prophecy-symbol {
+  color: #e8c27d;
+  font-weight: 700;
+  margin-top: 1cqw;
+}
+
+.surprise-card-16 .prophecy-ending {
+  color: #d9bd94;
+  font-family: "DM Serif Display", serif;
+  font-style: italic;
+  font-size: 0.95cqw;
+  margin-top: 1cqw;
+}
+
+@keyframes prophecy-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Kerst-cursors */
 @media (hover: hover) and (pointer: fine) {
   body {

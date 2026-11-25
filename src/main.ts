@@ -309,6 +309,82 @@ function createSurpriseCard(day: number): string {
     </div>
   `;
   }
+  // A Random Prophecy op dag 16
+  if (day === 16) {
+    const prophecies: Record<
+      string,
+      { title: string; text: string; symbol: string }
+    > = {
+      annie: {
+        title: "De voorspelling van onverwachte avonturen",
+        text: "Er komt een onverwachte kans op je pad. In eerste instantie zul je je afvragen waarom je hieraan begint, maar uiteindelijk blijkt het precies het soort twijfelachtige avontuur te zijn dat je nodig had. Een spontaan plan, een beetje chaos en een verhaal om nooit meer te vergeten staan in de sterren geschreven.",
+        symbol: "🗝️ Een mysterieuze sleutel",
+      },
+      jais: {
+        title: "De voorspelling van groot fortuin",
+        text: "Een mysterieuze golf van geluk komt jouw kant op. Iets wat je al een tijdje wilt, zal plotseling binnen handbereik liggen. Helaas is je bankrekening daar misschien iets minder enthousiast over. Het universum adviseert je om je dromen te volgen, maar misschien eerst even je saldo te checken.",
+        symbol: "💰 Een gouden munt",
+      },
+      vero: {
+        title: "De voorspelling van onverwachte wendingen",
+        text: "Het universum heeft iets bijzonders voor je in petto. Een onverwachte ontmoeting, een vreemd toeval of een situatie die zo absurd is dat niemand je ooit zal geloven. Negeer de tekens niet. Vooral niet als ze iets te maken hebben met snacks, goede muziek of een bijzonder gelukkige dinsdag.",
+        symbol: "🌟 Een vallende ster",
+      },
+      marjon: {
+        title: "De voorspelling van creatieve chaos",
+        text: "De sterren voorspellen een plotselinge uitbarsting van inspiratie. Een gewone dag verandert in een onverwacht creatief avontuur. Je begint misschien met één klein idee en eindigt met iets totaal anders. Pas op: je fantasie is niet meer te stoppen. Zelfs het universum kan je ideeën niet bijhouden.",
+        symbol: "🖌️ Een penseel",
+      },
+    };
+
+    const prophecy = prophecies[recipientId] ?? {
+      title: "Een bijzondere voorspelling",
+      text: "Het universum heeft iets moois voor jou in petto. Er komt een onverwachte verrassing op je pad. Blijf nieuwsgierig en laat je verrassen!",
+      symbol: "✨ Een beetje kerstmagie",
+    };
+
+    return `
+      <div class="surprise-card surprise-card-16">
+        <h2>🔮 A RANDOM PROPHECY</h2>
+        <p class="prophecy-intro">Het universum heeft een boodschap voor je...</p>
+
+        <div class="prophecy-choices">
+          <p class="prophecy-instruction">Kies één van de drie kaarten</p>
+
+          <div class="prophecy-card-list">
+            <button class="prophecy-card-choice" type="button" aria-label="Kies kaart 1">
+              <span class="prophecy-card-inner">
+                <span class="prophecy-card-back">✦</span>
+                <span class="prophecy-card-front">☾</span>
+              </span>
+            </button>
+
+            <button class="prophecy-card-choice" type="button" aria-label="Kies kaart 2">
+              <span class="prophecy-card-inner">
+                <span class="prophecy-card-back">✦</span>
+                <span class="prophecy-card-front">☼</span>
+              </span>
+            </button>
+
+            <button class="prophecy-card-choice" type="button" aria-label="Kies kaart 3">
+              <span class="prophecy-card-inner">
+                <span class="prophecy-card-back">✦</span>
+                <span class="prophecy-card-front">☆</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="prophecy-result" hidden>
+          <p class="prophecy-reveal-label">JOUW VOORSPELLING</p>
+          <h3>${prophecy.title}</h3>
+          <p class="prophecy-text">${prophecy.text}</p>
+          <p class="prophecy-symbol">${prophecy.symbol}</p>
+          <p class="prophecy-ending">Het universum heeft gesproken. Zeg niet dat we je niet gewaarschuwd hebben. ✨</p>
+        </div>
+      </div>
+    `;
+  }
 
   const surprise = personalSurprises[day];
 
@@ -471,7 +547,39 @@ document.querySelector(".calendar")?.addEventListener("click", (event) => {
       return;
     }
   }
+  // Kaart kiezen bij A Random Prophecy - dag 16
+  const prophecyChoice = target.closest<HTMLButtonElement>(
+    ".prophecy-card-choice",
+  );
 
+  if (prophecyChoice) {
+    const prophecyWindow = prophecyChoice.closest(".window-16");
+
+    if (!prophecyWindow?.classList.contains("open")) return;
+
+    const choices = prophecyWindow.querySelector(".prophecy-choices");
+    const result = prophecyWindow.querySelector(".prophecy-result");
+
+    if (!choices || !result || choices.classList.contains("is-choosing")) {
+      return;
+    }
+
+    choices.classList.add("is-choosing");
+    prophecyChoice.classList.add("is-selected");
+
+    prophecyWindow
+      .querySelectorAll<HTMLButtonElement>(".prophecy-card-choice")
+      .forEach((card) => {
+        card.disabled = true;
+      });
+
+    window.setTimeout(() => {
+      choices.setAttribute("hidden", "");
+      result.removeAttribute("hidden");
+    }, 700);
+
+    return;
+  }
   const clickArea = target.closest(".door-click-area, .window-click-area");
 
   if (!clickArea) return;

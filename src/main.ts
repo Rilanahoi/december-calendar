@@ -67,6 +67,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
     11: {
       image: "/images/verassingen/iedereen/memeannie.jpg",
     },
+    14: {
+      text: "Toen al supermodellen",
+      image: "/images/verassingen/annie/dag14.JPG",
+    },
   },
 
   jais: {
@@ -88,6 +92,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
     },
     11: {
       image: "/images/verassingen/iedereen/memejais.jpg",
+    },
+    14: {
+      text: "En deze banger van een foto niet vergeten",
+      image: "/images/verassingen/jais/dag14.JPG",
     },
   },
 
@@ -111,6 +119,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
     11: {
       image: "/images/verassingen/iedereen/memevero.png",
     },
+    14: {
+      text: "al 100 jaar vriendinnen <3",
+      image: "/images/verassingen/vero/dag14.JPG",
+    },
   },
   marjon: {
     1: {
@@ -131,6 +143,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
     },
     11: {
       image: "/images/verassingen/iedereen/mememarjon.jpg",
+    },
+    14: {
+      text: "en het bordspel niet vergeten hihihi",
+      image: "/images/verassingen/marjon/dag14.JPG",
     },
   },
 };
@@ -273,6 +289,25 @@ function createSurpriseCard(day: number): string {
         <p>${horoscopes[recipientId] ?? "De kerststerren hebben iets moois voor jou in petto. Laat je verrassen door een beetje kerstmagie! ♡"}</p>
       </div>
     `;
+  }
+
+  if (day === 13) {
+    return `
+    <div class="surprise-card surprise-card-13">
+      <h2>FOTO CHALLENGE</h2>
+      <p>
+       De challenge is simpel:
+      </p>
+      <p class="photo-challenge-task">
+        zoek iets roods en maak een foto
+      </p>
+      <p>
+        stuur naar rie op whatsapp!
+      </p>
+      <p class="photo-challenge-footer">
+      </p>
+    </div>
+  `;
   }
 
   const surprise = personalSurprises[day];

@@ -386,6 +386,255 @@ function createSurpriseCard(day: number): string {
     `;
   }
 
+  // Welke kerstfilm ben jij? - dag 20
+  if (day === 20) {
+    const questions = [
+      {
+        question: "Hoe ziet jouw ideale kerstdag eruit?",
+        options: [
+          {
+            text: "Een dag vol avonturen en een beetje chaos",
+            movie: "home-alone",
+          },
+          {
+            text: "Lekker met rust gelaten worden, dankjewel",
+            movie: "grinch",
+          },
+          {
+            text: "Een knus huisje, lekker eten en gezelligheid",
+            movie: "the-holiday",
+          },
+          {
+            text: "Overal lichtjes, cadeautjes en kerstplezier!",
+            movie: "elf",
+          },
+        ],
+      },
+      {
+        question: "Wat is jouw rol tijdens een kerstfeest?",
+        options: [
+          {
+            text: "Ik ben degene die iedereen aan het lachen maakt",
+            movie: "elf",
+          },
+          {
+            text: "Ik sta alles vanaf een afstandje te observeren",
+            movie: "grinch",
+          },
+          {
+            text: "Ik zorg dat iedereen zich welkom voelt",
+            movie: "love-actually",
+          },
+          {
+            text: "Ik ben de onverwachte factor van de avond",
+            movie: "nightmare",
+          },
+        ],
+      },
+      {
+        question: "Er gaat iets compleet mis met kerst. Wat doe je?",
+        options: [
+          { text: "Ik los het zelf wel op. Kom maar op!", movie: "home-alone" },
+          {
+            text: "Ik maak er het beste van met een dekentje en wat lekkers",
+            movie: "the-holiday",
+          },
+          {
+            text: "Ik vertrouw erop dat er iets magisch gebeurt",
+            movie: "polar-express",
+          },
+          { text: "Ik had al verwacht dat dit zou gebeuren", movie: "grinch" },
+        ],
+      },
+      {
+        question: "Je mag één magisch kerstcadeau kiezen. Wat wordt het?",
+        options: [
+          {
+            text: "Een kaartje naar een magische andere wereld",
+            movie: "polar-express",
+          },
+          {
+            text: "Een tweede kans op een bijzonder avontuur",
+            movie: "love-actually",
+          },
+          {
+            text: "Een beetje duistere magie en iets totaal onverwachts",
+            movie: "nightmare",
+          },
+          {
+            text: "Een onuitputtelijke voorraad speelgoed en snoep",
+            movie: "elf",
+          },
+        ],
+      },
+      {
+        question: "Waar zou jij het liefst kerst vieren?",
+        options: [
+          {
+            text: "In een bruisende stad vol kerstlichtjes",
+            movie: "love-actually",
+          },
+          {
+            text: "In een Engels huisje met een open haard",
+            movie: "the-holiday",
+          },
+          {
+            text: "In een magische wereld vol sneeuw en sterren",
+            movie: "polar-express",
+          },
+          {
+            text: "In een vreemd maar prachtig fantasiewereldje",
+            movie: "nightmare",
+          },
+        ],
+      },
+      {
+        question: "Wat past het beste bij jouw persoonlijkheid?",
+        options: [
+          {
+            text: "Slim, zelfstandig en soms een tikkeltje ondeugend",
+            movie: "home-alone",
+          },
+          {
+            text: "Een beetje sarcastisch, maar met een klein hartje",
+            movie: "grinch",
+          },
+          {
+            text: "Enthousiast, spontaan en altijd in voor plezier",
+            movie: "elf",
+          },
+          {
+            text: "Gevoelig, zorgzaam en gek op mooie momenten",
+            movie: "love-actually",
+          },
+        ],
+      },
+      {
+        question: "Kies jouw ultieme kerstgevoel!",
+        options: [
+          {
+            text: "Een beetje vreemd, lekker eigenzinnig en creatief",
+            movie: "nightmare",
+          },
+          {
+            text: "Verwondering, magie en geloven in het onmogelijke",
+            movie: "polar-express",
+          },
+          {
+            text: "Lachen om alle chaos die vanzelf ontstaat",
+            movie: "home-alone",
+          },
+          { text: "Warmte, romantiek en samen genieten", movie: "the-holiday" },
+        ],
+      },
+    ];
+
+    const movies = [
+      {
+        id: "home-alone",
+        title: "Home Alone",
+        description:
+          "Jij bent slim, zelfstandig en niet bang om je eigen plan te trekken. Als er iets misgaat, bedenk jij wel een oplossing. Misschien loopt het niet altijd helemaal volgens plan, maar saai wordt het met jou nooit. Jij maakt van iedere situatie een avontuur!",
+      },
+      {
+        id: "grinch",
+        title: "The Grinch",
+        description:
+          "Je hebt een gezonde dosis sarcasme en bent niet altijd even enthousiast over alle kerstgekte. Maar achter dat soms wat norse uiterlijk zit een warm hart. Je laat misschien niet altijd zien hoeveel je om anderen geeft, maar de mensen die jou kennen weten wel beter.",
+      },
+      {
+        id: "the-holiday",
+        title: "The Holiday",
+        description:
+          "Jij houdt van gezelligheid, kleine geluksmomentjes en een flinke dosis romantiek. Een knus plekje, lekker eten en goed gezelschap maken jou helemaal gelukkig. Je gelooft dat er altijd iets moois kan ontstaan, zelfs wanneer dingen anders lopen dan verwacht.",
+      },
+      {
+        id: "elf",
+        title: "Elf",
+        description:
+          "Jij bent een en al enthousiasme! Je haalt plezier uit de kleinste dingen en brengt graag wat extra vrolijkheid in het leven van anderen. Soms ben je misschien een beetje té enthousiast, maar eerlijk: de wereld kan wel wat meer van jouw kerstenergie gebruiken.",
+      },
+      {
+        id: "love-actually",
+        title: "Love Actually",
+        description:
+          "Jij bent een gevoelsmens met een groot hart. Je hecht waarde aan bijzondere momenten, vriendschappen en mensen om je heen. Je ziet schoonheid in kleine gebaren en gelooft dat liefde in allerlei vormen voorkomt. Stiekem ben jij best een romanticus.",
+      },
+      {
+        id: "polar-express",
+        title: "The Polar Express",
+        description:
+          "Jij hebt een flinke dosis fantasie en verwondering in je. Je blijft nieuwsgierig, houdt van bijzondere ervaringen en gelooft dat er altijd meer mogelijk is dan je op het eerste gezicht denkt. Verlies vooral nooit dat beetje magie in jezelf!",
+      },
+      {
+        id: "nightmare",
+        title: "The Nightmare Before Christmas",
+        description:
+          "Jij bent creatief, eigenzinnig en absoluut niet van de standaardaanpak. Een beetje mysterie, een donker randje en een flinke dosis fantasie passen helemaal bij jou. Je doet de dingen graag op je eigen manier en dat maakt je juist zo leuk.",
+      },
+    ];
+
+    return `
+      <div class="surprise-card surprise-card-20 movie-quiz-card">
+        <div class="movie-quiz" data-answers="[]">
+          <p class="movie-quiz-kicker">KERSTFILM QUIZ</p>
+          <h2>Welke kerstfilm ben jij?</h2>
+          <p class="movie-quiz-intro">
+            Beantwoord 7 vragen en ontdek welke kerstfilm bij jou past!
+          </p>
+
+          <p class="movie-quiz-progress">Vraag 1 van 7</p>
+
+          <div class="movie-quiz-questions">
+            ${questions
+              .map(
+                (question, index) => `
+              <section class="movie-quiz-question" data-index="${index}" ${index === 0 ? "" : "hidden"}>
+                <h3>${question.question}</h3>
+                <div class="movie-quiz-options">
+                  ${question.options
+                    .map(
+                      (option) => `
+                    <button
+                      type="button"
+                      class="movie-quiz-answer"
+                      data-movie="${option.movie}"
+                    >
+                      ${option.text}
+                    </button>
+                  `,
+                    )
+                    .join("")}
+                </div>
+              </section>
+            `,
+              )
+              .join("")}
+          </div>
+
+          <div class="movie-quiz-result" hidden>
+            <p class="movie-quiz-result-label">JOUW KERSTFILM IS...</p>
+
+            ${movies
+              .map(
+                (movie) => `
+              <article class="movie-quiz-outcome" data-movie-result="${movie.id}" hidden>
+                <h3>${movie.title}</h3>
+                <p>${movie.description}</p>
+              </article>
+            `,
+              )
+              .join("")}
+
+            <button type="button" class="movie-quiz-restart">
+              Speel opnieuw ↻
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   const surprise = personalSurprises[day];
 
   if (!surprise) {
@@ -547,6 +796,109 @@ document.querySelector(".calendar")?.addEventListener("click", (event) => {
       return;
     }
   }
+
+  // Kerstfilmquiz - antwoorden verwerken
+  const movieAnswer = target.closest<HTMLButtonElement>(".movie-quiz-answer");
+
+  if (movieAnswer) {
+    const movieWindow = movieAnswer.closest(".window-20");
+
+    if (!movieWindow?.classList.contains("open")) return;
+
+    const quiz = movieWindow.querySelector<HTMLElement>(".movie-quiz");
+    const question = movieAnswer.closest<HTMLElement>(".movie-quiz-question");
+
+    if (!quiz || !question) return;
+
+    const answers = JSON.parse(quiz.dataset.answers ?? "[]") as string[];
+    answers.push(movieAnswer.dataset.movie ?? "");
+    quiz.dataset.answers = JSON.stringify(answers);
+
+    question.hidden = true;
+
+    const progress = quiz.querySelector<HTMLElement>(".movie-quiz-progress");
+
+    if (answers.length < 7) {
+      const nextQuestion = quiz.querySelector<HTMLElement>(
+        `.movie-quiz-question[data-index="${answers.length}"]`,
+      );
+
+      nextQuestion?.removeAttribute("hidden");
+
+      if (progress) {
+        progress.textContent = `Vraag ${answers.length + 1} van 7`;
+      }
+    } else {
+      const scores: Record<string, number> = {};
+
+      answers.forEach((movie) => {
+        scores[movie] = (scores[movie] ?? 0) + 1;
+      });
+
+      const highestScore = Math.max(...Object.values(scores));
+      const lastAnswer = answers[answers.length - 1];
+
+      const winner =
+        scores[lastAnswer] === highestScore
+          ? lastAnswer
+          : Object.keys(scores).find((movie) => scores[movie] === highestScore);
+
+      quiz.querySelector(".movie-quiz-questions")?.setAttribute("hidden", "");
+
+      const result = quiz.querySelector<HTMLElement>(".movie-quiz-result");
+      const outcome = quiz.querySelector<HTMLElement>(
+        `.movie-quiz-outcome[data-movie-result="${winner}"]`,
+      );
+
+      result?.removeAttribute("hidden");
+      outcome?.removeAttribute("hidden");
+
+      if (progress) {
+        progress.textContent = "Jouw uitslag is binnen! ✨";
+      }
+    }
+
+    return;
+  }
+
+  // Kerstfilmquiz - opnieuw spelen
+  const movieRestart = target.closest<HTMLButtonElement>(".movie-quiz-restart");
+
+  if (movieRestart) {
+    const movieWindow = movieRestart.closest(".window-20");
+
+    if (!movieWindow?.classList.contains("open")) return;
+
+    const quiz = movieWindow.querySelector<HTMLElement>(".movie-quiz");
+    if (!quiz) return;
+
+    quiz.dataset.answers = "[]";
+
+    quiz.querySelector(".movie-quiz-result")?.setAttribute("hidden", "");
+    quiz.querySelector(".movie-quiz-questions")?.removeAttribute("hidden");
+
+    quiz
+      .querySelectorAll<HTMLElement>(".movie-quiz-outcome")
+      .forEach((outcome) => {
+        outcome.setAttribute("hidden", "");
+      });
+
+    quiz
+      .querySelectorAll<HTMLElement>(".movie-quiz-question")
+      .forEach((question) => {
+        question.setAttribute("hidden", "");
+      });
+
+    quiz
+      .querySelector('.movie-quiz-question[data-index="0"]')
+      ?.removeAttribute("hidden");
+
+    const progress = quiz.querySelector<HTMLElement>(".movie-quiz-progress");
+    if (progress) progress.textContent = "Vraag 1 van 7";
+
+    return;
+  }
+
   // Kaart kiezen bij A Random Prophecy - dag 16
   const prophecyChoice = target.closest<HTMLButtonElement>(
     ".prophecy-card-choice",
@@ -580,6 +932,7 @@ document.querySelector(".calendar")?.addEventListener("click", (event) => {
 
     return;
   }
+
   const clickArea = target.closest(".door-click-area, .window-click-area");
 
   if (!clickArea) return;

@@ -71,6 +71,10 @@ const surprises: Record<string, Record<number, Surprise>> = {
       text: "Toen al supermodellen",
       image: "/images/verassingen/annie/dag14.JPG",
     },
+    21: {
+      text: "Merry larry xmas",
+      image: "/images/verassingen/annie/merrylarry.png",
+    },
   },
 
   jais: {
@@ -193,8 +197,9 @@ function createSurpriseCard(day: number): string {
         Stuur een foto of plaatje die jouw mood van vandaag omschrijft!
       </p>
       <p>
-        Mag een selfie zijn, een meme, een GIF of iets totaal randoms. 😂
-      </p>
+        Mag een selfie zijn, een meme, een GIF of iets totaal randoms.
+        Stuur naar Rie op whatsapp!
+              </p>
     </div>
   `;
   }

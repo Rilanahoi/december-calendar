@@ -2456,6 +2456,56 @@ Gebruik voor tekst "cqw" in plaats van "px" (px / 7,6 = cqw).
   }
 }
 
+/* =====================================
+   DAG 22 – getekend kaartje
+===================================== */
+
+.surprise-card-21 {
+  top: 35%;
+  left: 68.5%;
+  width: 15%;
+  height: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  overflow: hidden;
+}
+
+/* TITEL */
+.surprise-card-21 h2 {
+  margin: 0;
+  font-size: 1.05cqw;
+  text-align: center;
+}
+
+/* TEKST */
+.surprise-card-21 p {
+  margin: 0;
+  font-size: 0.79cqw;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* foto– ALGEMEEN */
+.surprise-card-21 img {
+  width: 100%;
+  height: 65%;
+  object-fit: contain;
+}
+
+/* Dag 14 – kaartje vóór het raampje */
+.window-21 {
+  isolation: auto;
+}
+
+.window-21 .surprise-card-21 {
+  position: absolute;
+  z-index: 20;
+}
+
 /* Kerst-cursors */
 @media (hover: hover) and (pointer: fine) {
   body {

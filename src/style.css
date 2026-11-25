@@ -48,10 +48,18 @@ h1 {
   letter-spacing: 1px;
 }
 
+/*
+  NIEUW: de kalender is nu een "container". Daardoor kun je in de kaartjes
+  de eenheid "cqw" gebruiken (1cqw = 1% van de breedte van de kalender).
+  Op desktop (kalender = 760px) is 1cqw = 7,6px, dus de tekst ziet er daar
+  precies hetzelfde uit als voorheen, maar op een telefoon schaalt hij mee.
+  Omrekenen: px / 7,6 = cqw (bijv. 6px = 0.79cqw, 8px = 1.05cqw).
+*/
 .calendar {
   position: relative;
   width: min(100%, 760px);
   margin: 0 auto;
+  container-type: inline-size;
 }
 
 .calendar-image {
@@ -103,9 +111,18 @@ h1 {
 .surprise-card p {
   color: #fce2c6;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(5px, 0.7vw, 7px);
+  font-size: 0.92cqw;
   line-height: 1.2;
   margin: 3px 0 1px;
+}
+
+/*
+  Wordle en het drankjesboekje zijn grotere, vaste overlays (max 250-300px).
+  Die houden vaste px, zoals ze op desktop al waren.
+*/
+.wordle-surprise-card p,
+.drink-book-surprise-card p {
+  font-size: 7px;
 }
 
 .door-area.open .surprise-card,
@@ -397,6 +414,16 @@ h1 {
 
 .window-7.open .window-right {
   transform: perspective(500px) rotateY(120deg);
+}
+
+/*
+  NIEUW - Dag 3 en 7: als het raampje open is, ligt het onzichtbare klikgebied
+  anders bovenop het boekje / Wordle en klapt een klik op een toets het raampje
+  dicht. Sluiten kan via het kruisje.
+*/
+.window-3.open .window-click-area-3,
+.window-7.open .window-click-area-7 {
+  pointer-events: none;
 }
 
 /* Raampje 8 */
@@ -1090,7 +1117,7 @@ h1 {
 }
 
 .surprise-card-1 p {
-  font-size: 5px;
+  font-size: 0.66cqw;
   line-height: 1.2;
   margin: 1px 0;
 }
@@ -1116,7 +1143,7 @@ h1 {
 }
 
 .surprise-card-2 p {
-  font-size: 5px;
+  font-size: 0.66cqw;
   line-height: 1.2;
   margin: 1px 0;
 }
@@ -1132,6 +1159,7 @@ h1 {
 /*
 Voor de overige dagen kun je op dezelfde manier
 een eigen positie en formaat instellen.
+Gebruik voor tekst "cqw" in plaats van "px" (px / 7,6 = cqw).
 */
 
 /* Behoud originele raampjes- en deuranimaties */
@@ -1410,14 +1438,14 @@ een eigen positie en formaat instellen.
 .surprise-card-4 h2 {
   color: #fce2c6;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(5px, 0.7vw, 8px);
+  font-size: 1.05cqw;
   margin: 0 0 3px;
 }
 
 .surprise-card-4 p {
   color: #fce2c6;
   font-family: "Nunito", sans-serif;
-  font-size: clamp(4px, 0.55vw, 6px);
+  font-size: 0.79cqw;
   line-height: 1.3;
   margin: 0;
 }
@@ -1503,7 +1531,7 @@ een eigen positie en formaat instellen.
 .surprise-card-6 h2 {
   color: #fce2c6;
   font-family: "DM Serif Display", serif;
-  font-size: 9px;
+  font-size: 1.18cqw;
   line-height: 1.2;
   margin: 2px 0 4px;
 }
@@ -1511,7 +1539,7 @@ een eigen positie en formaat instellen.
 .surprise-card-6 p {
   color: #fce2c6;
   font-family: "Nunito", sans-serif;
-  font-size: 7px;
+  font-size: 0.92cqw;
   line-height: 1.3;
   margin: 2px 0;
 }
@@ -1693,6 +1721,17 @@ een eigen positie en formaat instellen.
   text-align: center;
   line-height: 1.3;
 }
+/* Dilemma-kaartje boven de raampjes (ook boven de openklappende luikjes) */
+.surprise-card.dilemma-tuesday-card {
+  z-index: 5;
+}
+
+/* Een geopend dilemma-raampje ligt boven de raampjes ernaast */
+.window-8.open,
+.window-15.open,
+.window-22.open {
+  z-index: 8;
+}
 
 /* =====================================
    DAG 8
@@ -1712,7 +1751,7 @@ een eigen positie en formaat instellen.
 
 .surprise-card-8 .dilemma-text {
   width: 70%;
-  font-size: 6px;
+  font-size: 0.79cqw;
 }
 
 /* =====================================
@@ -1733,7 +1772,7 @@ een eigen positie en formaat instellen.
 
 .surprise-card-15 .dilemma-text {
   width: 70%;
-  font-size: 6px;
+  font-size: 0.79cqw;
 }
 
 /* =====================================
@@ -1764,7 +1803,7 @@ een eigen positie en formaat instellen.
 
 /* Annie */
 .surprise-card-9:has(.surprise-image-annie-9) p {
-  font-size: 8px;
+  font-size: 1.05cqw;
 }
 
 .surprise-image-annie-9 {
@@ -1775,7 +1814,7 @@ een eigen positie en formaat instellen.
 
 /* Jais */
 .surprise-card-9:has(.surprise-image-jais-9) p {
-  font-size: 12px;
+  font-size: 1.58cqw;
 }
 
 .surprise-image-jais-9 {
@@ -1786,7 +1825,7 @@ een eigen positie en formaat instellen.
 
 /* Vero */
 .surprise-card-9:has(.surprise-image-vero-9) p {
-  font-size: 6px;
+  font-size: 0.79cqw;
 }
 
 .surprise-image-vero-9 {
@@ -1796,7 +1835,7 @@ een eigen positie en formaat instellen.
 
 /* Marjon */
 .surprise-card-9:has(.surprise-image-marjon-9) p {
-  font-size: 12px;
+  font-size: 1.58cqw;
 }
 
 .surprise-image-marjon-9 {
@@ -1824,22 +1863,22 @@ een eigen positie en formaat instellen.
 
 .surprise-card-10 h2 {
   margin: 0;
-  font-size: 12px;
+  font-size: 1.58cqw;
 }
 
 .surprise-card-10 p {
   margin: 0;
-  font-size: 8px;
+  font-size: 1.05cqw;
 }
 
 .spotify-button {
   display: inline-block;
-  padding: 5px 8px;
+  padding: 0.66cqw 1.05cqw;
   background: #8a1313;
   color: #fce2c6;
   text-decoration: none;
   border-radius: 20px;
-  font-size: 8px;
+  font-size: 1.05cqw;
   font-weight: 700;
   white-space: nowrap;
   position: relative;
@@ -1884,14 +1923,14 @@ een eigen positie en formaat instellen.
 /* TITEL */
 .surprise-card-11 h2 {
   margin: 0;
-  font-size: 8px;
+  font-size: 1.05cqw;
   text-align: center;
 }
 
 /* TEKST */
 .surprise-card-11 p {
   margin: 0;
-  font-size: 6px;
+  font-size: 0.79cqw;
   text-align: center;
   line-height: 1.2;
 }
@@ -1932,13 +1971,13 @@ een eigen positie en formaat instellen.
 .surprise-card-12 h2 {
   color: #000000;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(7px, 1vw, 11px);
+  font-size: 1.45cqw;
   margin: 2px 0 4px;
 }
 
 .surprise-card-12 p {
   color: #ffffff;
-  font-size: clamp(5px, 0.65vw, 8px);
+  font-size: 1.05cqw;
   line-height: 1.3;
   margin: 0;
 }
@@ -1959,7 +1998,7 @@ een eigen positie en formaat instellen.
   max-width: 100%;
 }
 
-/* Vero en Marjon - dag 2 kaartje groter */
+/* Jais, Vero en Marjon - dag 2 kaartje groter */
 .surprise-card:has(.surprise-image-jais-2),
 .surprise-card:has(.surprise-image-vero-2),
 .surprise-card:has(.surprise-image-marjon-2) {
@@ -1997,7 +2036,10 @@ een eigen positie en formaat instellen.
 }
 
 /* =====================================
-   ALGEMENE MOBIELE SCHAAL KAARTJES
+   MOBIEL
+   (De lettergroottes van de kaartjes staan nu in cqw en schalen vanzelf
+   mee met de kalender. Voorheen dwong dit blok op telefoons alle titels
+   en teksten - ook in Wordle en het drankjesboekje - naar ~4px.)
 ===================================== */
 
 @media (max-width: 600px) {
@@ -2006,22 +2048,33 @@ een eigen positie en formaat instellen.
     padding: 1px;
   }
 
-  .surprise-card h2 {
-    font-size: clamp(4px, 1.1vw, 8px);
-    line-height: 1.1;
-  }
-
-  .surprise-card p {
-    font-size: clamp(4px, 0.9vw, 7px);
-    line-height: 1.15;
-  }
-
   .surprise-card img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
   }
 }
+
+/* =====================================
+   OPTIONEEL (staat uit): geopende kaartjes op mobiel vergroten.
+   Om het te proberen: verwijder de commentaarmarkering vóór en na het
+   blok hieronder. Nog niet getest, want het hangt af van jouw plaatjes.
+   Past het niet, zet dan het getal bij scale() lager.
+
+@media (max-width: 600px) {
+  .window-area.open,
+  .door-area.open {
+    z-index: 20;
+  }
+
+  .window-area.open
+    .surprise-card:not(.wordle-surprise-card):not(.drink-book-surprise-card),
+  .door-area.open .surprise-card {
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+===================================== */
+
 /* FOOTER */
 
 footer {

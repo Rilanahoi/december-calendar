@@ -145,6 +145,7 @@ export function setupDrinkBook(): void {
   let currentPage = 0;
 
   function renderPage(): void {
+    pageElement.scrollTop = 0;
     const page = pages[currentPage];
 
     if (page.type === "cover") {
